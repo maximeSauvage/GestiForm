@@ -33,6 +33,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<start-class>be.atc.gestiform.GestiformApplication</start-class>
 		<java.version>1.8</java.version>
+		<primefaces.version>5.2</primefaces.version>
 	</properties>
 
 	<dependencies>
@@ -59,7 +60,7 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>5.0</version>
+			<version>${primefaces.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
