@@ -15,8 +15,19 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.2.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.spring.platform</groupId>
+				<artifactId>platform-bom</artifactId>
+				<version>1.1.2.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,7 +44,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -44,8 +55,30 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+		</dependency>
+
+		<!-- JSF's ConfigureListener also has a dependency on JSP, so you'll need 
+			to add a dependency on Jasper to your pom -->
+		<!-- @see http://stackoverflow.com/questions/25479986/spring-boot-with-jsf-could-not-find-backup-for-factory-javax-faces-context-face -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
