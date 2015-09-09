@@ -1,4 +1,4 @@
-package be.atc.gestiform.view;
+package be.atc.gestiform.dashboard.view;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
