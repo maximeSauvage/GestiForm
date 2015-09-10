@@ -13,12 +13,15 @@ public class ApprenantListView {
 	
 	@Autowired
 	ApprenantService apprenantService;
+	@Autowired
+	ApprenantEditView apprenantEditView;
 	
 	public Iterable<Apprenant> getAllApprenant() {
 		return apprenantService.findAllApprenant();
 	}
 	
 	public String editAprennant() {
+		apprenantEditView.setHello("hello edit");
 		return "success";
 	}
 
