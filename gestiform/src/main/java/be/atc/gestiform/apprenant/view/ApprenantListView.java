@@ -17,5 +17,9 @@ public class ApprenantListView {
 	public Iterable<Apprenant> getAllApprenant() {
 		return apprenantService.findAllApprenant();
 	}
+	
+	public String editAprennant() {
+		return "success";
+	}
 
 }

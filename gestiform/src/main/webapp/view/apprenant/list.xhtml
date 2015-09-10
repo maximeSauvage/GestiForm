@@ -16,6 +16,12 @@
 	    <p:column headerText="Email">
 	        <h:outputText value="#{apprenant.email}" />
 	    </p:column>
+	    
+	   	<p:column headerText="">
+	   		<h:form>
+	   			<h:commandButton action="#{apprenantListView.editAprennant}" value="With Icon" styleClass="btn btn-default" />
+	   		</h:form>
+	    </p:column>
 	</p:dataTable>
 
 </h:body>
