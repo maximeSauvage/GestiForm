@@ -31,12 +31,14 @@ public class GestiformApplication extends SpringBootServletInitializer {
         ServletRegistrationBean registration = new ServletRegistrationBean(new FacesServlet(), new String[]{"*.xhtml"});
         registration.setName("Faces Servlet");
         registration.setLoadOnStartup(1);
+        registration.addUrlMappings("*.xhtml");
         return registration;
     }
 
     @Bean
     public ServletContextInitializer servletContextInitializer() {
         return servletContext -> {
+        	servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
             servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
             servletContext.setInitParameter("primefaces.THEME", "bootstrap");
             servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", Boolean.TRUE.toString());
