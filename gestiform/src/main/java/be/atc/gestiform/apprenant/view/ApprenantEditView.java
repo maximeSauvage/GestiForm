@@ -1,26 +1,50 @@
 package be.atc.gestiform.apprenant.view;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import be.atc.gestiform.apprenant.entity.Apprenant;
+import be.atc.gestiform.apprenant.service.ApprenantService;
 
 @Component("apprenantEditView")
 @Scope("session")
 public class ApprenantEditView {
 	
-	private String hello="";
-
-	/**
-	 * @return the hello
+	
+	@Autowired
+	ApprenantService apprenantService;
+	
+	private Apprenant apprenant;
+	
+    /**
+	 * @return the apprenant
 	 */
-	public String getHello() {
-		return hello;
+	public Apprenant getApprenant() {
+		return apprenant;
 	}
 
 	/**
-	 * @param hello the hello to set
+	 * @param apprenant the apprenant to set
 	 */
-	public void setHello(String hello) {
-		this.hello = hello;
+	public void setApprenant(Apprenant apprenant) {
+		this.apprenant = apprenant;
+	}
+	
+	public String getNom() {
+		return apprenant.getNom();
+	}
+	
+	public void setNom(String nom) {
+		apprenant.setNom(nom);
+	}
+
+
+	public String submit(){
+		System.out.println(apprenant.getNom());
+		apprenant = apprenantService.save(apprenant);
+		System.out.println(apprenant.getNom());
+        return "";
 	}
 
 }

@@ -25,6 +25,17 @@ public class ApprenantService {
 		return apprenantRepository.findAll();
 	}
 	
+	/**
+	 * Retrieves an apprenant by its id.
+	 * 
+	 * @param id must not be {@literal null}.
+	 * @return the apprenant with the given id or {@literal null} if none found
+	 * @throws IllegalArgumentException if {@code id} is {@literal null}
+	 */
+	public Apprenant findOne(Integer id) {
+		return apprenantRepository.findOne(id);
+	}
+	
 	public Apprenant save(Apprenant apprenant) {
 
 		Apprenant result = apprenant;
@@ -45,6 +56,8 @@ public class ApprenantService {
 		}
 		
 		result = apprenantRepository.save(result);
+		
+		System.out.println("apprenant saved");
 
 		return result;
 	}

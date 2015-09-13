@@ -7,8 +7,11 @@
 <h:head>
 </h:head>
 <h:body>
-
-	#{apprenantEditView.hello}
+	
+	<h:form>
+		<h:inputText id="input" value="#{apprenantEditView.apprenant.nom}" />
+		<h:commandButton value="Submit" action="#{apprenantEditView.submit}" />
+	</h:form>
 
 </h:body>
 </html>
