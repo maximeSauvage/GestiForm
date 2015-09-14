@@ -26,7 +26,7 @@ public class ApprenantListView {
 	public String editAprennant(Integer id) {
 		if(id == null){
 			//TODO message to the UI
-			return JsfUtil.FAILED;
+			return JsfUtil.FAILURE;
 		} 
 		apprenantEditView.setApprenant(apprenantService.findOne(id));
 		return JsfUtil.SUCCESS;

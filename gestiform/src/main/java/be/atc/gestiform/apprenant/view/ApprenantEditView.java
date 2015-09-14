@@ -8,6 +8,7 @@ import be.atc.gestiform.apprenant.entity.Adresse;
 import be.atc.gestiform.apprenant.entity.Apprenant;
 import be.atc.gestiform.apprenant.entity.Pays;
 import be.atc.gestiform.apprenant.service.ApprenantService;
+import be.atc.gestiform.util.JsfUtil;
 
 @Component("apprenantEditView")
 @Scope("session")
@@ -40,8 +41,7 @@ public class ApprenantEditView {
 	}
 
 	/**
-	 * @param apprenant
-	 *            the apprenant to set
+	 * @param apprenant the apprenant to set
 	 */
 	public void setApprenant(Apprenant apprenant) {
 		if (apprenant.getAdresse() == null) {
@@ -55,19 +55,11 @@ public class ApprenantEditView {
 		this.apprenant = apprenant;
 	}
 
-	public String getNom() {
-		return apprenant.getNom();
-	}
-
-	public void setNom(String nom) {
-		apprenant.setNom(nom);
-	}
-
 	public String submit() {
 		System.out.println(apprenant.getNom());
 		apprenant = apprenantService.save(apprenant);
 		System.out.println(apprenant.getNom());
-		return "";
+		return JsfUtil.SUCCESS;
 	}
 
 }
