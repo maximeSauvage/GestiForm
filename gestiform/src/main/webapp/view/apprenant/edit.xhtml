@@ -3,13 +3,43 @@
 <html xmlns="http://www.w3c.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 </h:head>
 <h:body>
 	
 	<h:form>
-		<h:inputText id="input" value="#{apprenantEditView.apprenant.nom}" />
+		<p:outputLabel value="Nom:" for="nom" />
+		<p:inputText id="nom" value="#{apprenantEditView.apprenant.nom}" />
+		<br/>
+		<p:outputLabel value="Prenom:" for="prenom" />
+		<p:inputText id="prenom" value="#{apprenantEditView.apprenant.prenom}" />
+		<br/>
+		<p:outputLabel value="Rue:" for="rue" />
+		<p:inputText id="rue" value="#{apprenantEditView.apprenant.rue}" />
+		<br/>
+		<p:outputLabel value="Numéro de rue" for="numRue" />
+		<p:inputText id="numRue" value="#{apprenantEditView.apprenant.numRue}" />
+		<br/>
+		<p:outputLabel value="Téléphone:" for="telephone" />
+		<p:inputText id="telephone" value="#{apprenantEditView.apprenant.telephone}" />
+		<br/>
+		<p:outputLabel value="Email:" for="email" />
+		<p:inputText id="email" value="#{apprenantEditView.apprenant.email}" />
+		<br/>
+		<p:outputLabel value="Registre national:" for="registreNational" />
+		<p:inputText id="registreNational" value="#{apprenantEditView.apprenant.registreNational}" />
+		<br/>
+		<p:outputLabel value="Code postal:" for="codePostal" />
+		<p:inputText id="codePostal" value="#{apprenantEditView.apprenant.adresse.codePostal}" />
+		<br/>
+		<p:outputLabel value="Localité:" for="localite" />
+		<p:inputText id="localite" value="#{apprenantEditView.apprenant.adresse.localite}" />
+		<br/>
+		<p:outputLabel value="Pays:" for="pays" />
+		<p:inputText id="pays" value="#{apprenantEditView.apprenant.adresse.pays.pays}" />
+		<br/>
 		<h:commandButton value="Submit" action="#{apprenantEditView.submit}" />
 	</h:form>
 

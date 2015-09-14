@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
 
-
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
@@ -14,8 +13,38 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
-
-	<application>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{apprenantEditView.submit}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>view/apprenant/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{formationListView.editFormation(formation.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>view/formation/edit.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{formationEditView.submit}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>view/formation/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+		<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	</application>
 </faces-config>
