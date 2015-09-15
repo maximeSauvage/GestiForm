@@ -1,5 +1,7 @@
 package be.atc.gestiform.formation.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -21,8 +23,8 @@ public class Formation extends AbstractPersistable<Integer> {
 	private Integer prix;
 	private boolean active;
 	
-//	@OneToMany
-//	private Session session;
+	@OneToMany
+	private List<Session> session;
 
 	/**
 	 * @return the nom
