@@ -1,6 +1,5 @@
 package be.atc.gestiform.formation.service;
 
-import org.neo4j.cypher.internal.compiler.v2_1.planner.logical.findShortestPaths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

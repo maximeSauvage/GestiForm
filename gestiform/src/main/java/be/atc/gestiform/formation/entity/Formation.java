@@ -96,20 +96,4 @@ public class Formation extends AbstractPersistable<Integer> {
 		this.active = active;
 	}
 
-//	/**
-//	 * @return the session
-//	 */
-//	public Session getSession() {
-//		return session;
-//	}
-//
-//	/**
-//	 * @param session the session to set
-//	 */
-//	public void setSession(Session session) {
-//		this.session = session;
-//	}
-	
-	
-
 }

@@ -3,6 +3,7 @@ package be.atc.gestiform.session.entity;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -12,12 +13,12 @@ import be.atc.gestiform.formation.entity.Formation;
 @Entity
 public class Session extends AbstractPersistable<Integer>{
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Formation formation;
 	
 	private Date debut;
 	private Date fin;
-	private Integer nb_max_apprenant;
+	private Integer nbMaxApprenant;
 	private boolean organisee;
 	/**
 	 * @return the formation
@@ -58,14 +59,14 @@ public class Session extends AbstractPersistable<Integer>{
 	/**
 	 * @return the nb_max_apprenant
 	 */
-	public Integer getNb_max_apprenant() {
-		return nb_max_apprenant;
+	public Integer getNbMaxApprenant() {
+		return nbMaxApprenant;
 	}
 	/**
 	 * @param nb_max_apprenant the nb_max_apprenant to set
 	 */
-	public void setNb_max_apprenant(Integer nb_max_apprenant) {
-		this.nb_max_apprenant = nb_max_apprenant;
+	public void setNbMaxApprenant(Integer nb_max_apprenant) {
+		this.nbMaxApprenant = nb_max_apprenant;
 	}
 	/**
 	 * @return the organisee
