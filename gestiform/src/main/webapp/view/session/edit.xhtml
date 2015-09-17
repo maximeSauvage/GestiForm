@@ -10,7 +10,7 @@
 <h:body>
 	
 	<h:form>
-		<h:panelGrid columns="2" cellpadding="5">
+		<h:panelGrid columns="3" cellpadding="6">
 			<p:outputLabel value="Date de début:" for="debut" />
 			<p:calendar id="debut"  navigator="true" pattern="dd-MM-yyyy" mask="true" value="#{sessionEditView.sessionVO.dateDebut}" />
 			<br/>
@@ -26,7 +26,7 @@
 	                        completeMethod="#{sessionEditView.completeFormation}"
 	                        var="formation"
 	                        itemValue="#{formation.id.toString()}"
-	                        itemLabel="#{fomation.nom}"
+	                        itemLabel="#{formation.nom}"
 			/>
 			<br/>
 			<h:commandButton value="Submit" action="#{sessionEditView.submit}" />
