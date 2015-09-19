@@ -1,7 +1,6 @@
 package be.atc.gestiform.session.view;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,25 +21,33 @@ public class SessionEditView {
 	SessionService SessionService;
 	@Autowired
 	FormationService formationService;
+	
+	private Formation selectedFormation;
+
+	/**
+	 * @return the selectedFormation
+	 */
+	public Formation getSelectedFormation() {
+		return selectedFormation;
+	}
+
+	/**
+	 * @param selectedFormation the selectedFormation to set
+	 */
+	public void setSelectedFormation(Formation selectedFormation) {
+		this.selectedFormation = selectedFormation;
+	}
 
 	/**
 	 * the formation to edit
 	 */
 	private Session session;
-	private SessionVO sessionVO;
 
 
 	public SessionEditView() {
 		initSession();
-		initSessionVO();
 	}
 	
-	private void initSessionVO(){
-		if(sessionVO == null){
-			sessionVO = new SessionVO();
-		}
-		
-	}
 	private void initSession(){
 		if(session ==  null) {
 			session = new Session();
@@ -61,21 +68,6 @@ public class SessionEditView {
 		this.session = session;
 	}
 
-	
-	/**
-	 * @return the sessionVO
-	 */
-	public SessionVO getSessionVO() {
-		return sessionVO;
-	}
-
-	/**
-	 * @param sessionVO the sessionVO to set
-	 */
-	public void setSessionVO(SessionVO sessionVO) {
-		this.sessionVO = sessionVO;
-		initSessionVO();
-	}
 	
     public List<Formation> completeFormation(String query) {
         //TODO optimize
@@ -100,69 +92,13 @@ public class SessionEditView {
 	 * @return navigation
 	 */
 	public String submit() {
-		initSession();
-		System.out.println("sessionVO : " + sessionVO.getDateDebut() + "-" + sessionVO.getDateFin());
 		System.out.println("session : " + session.getDebut() + "-" + session.getFin());
+		System.out.println("session formation : " + session.getFormation());
 //		session = SessionService.save(session);
 		System.out.println("session : " + session.getDebut() + "-" + session.getFin());
+		System.out.println("session formation : " + session.getFormation());
+		System.out.println("selected formation : " + this.selectedFormation);
 		return JsfUtil.SUCCESS;
 	}
 	
-	public class SessionVO {
-		private Date dateDebut=new Date();
-		private Date dateFin=new Date();
-		private String nbMaxApprenant="";
-		private String formationId="";
-		/**
-		 * @return the dateDebut
-		 */
-		public Date getDateDebut() {
-			return dateDebut;
-		}
-		/**
-		 * @param dateDebut the dateDebut to set
-		 */
-		public void setDateDebut(Date dateDebut) {
-			this.dateDebut = dateDebut;
-		}
-		/**
-		 * @return the dateFin
-		 */
-		public Date getDateFin() {
-			return dateFin;
-		}
-		/**
-		 * @param dateFin the dateFin to set
-		 */
-		public void setDateFin(Date dateFin) {
-			this.dateFin = dateFin;
-		}
-		/**
-		 * @return the nbMaxApprenant
-		 */
-		public String getNbMaxApprenant() {
-			return nbMaxApprenant;
-		}
-		/**
-		 * @param nbMaxApprenant the nbMaxApprenant to set
-		 */
-		public void setNbMaxApprenant(String nbMaxApprenant) {
-			this.nbMaxApprenant = nbMaxApprenant;
-		}
-		/**
-		 * @return the formationId
-		 */
-		public String getFormationId() {
-			return formationId;
-		}
-		/**
-		 * @param formationId the formationId to set
-		 */
-		public void setFormationId(String formationId) {
-			this.formationId = formationId;
-		}
-		
-		
-		
-	}
 }

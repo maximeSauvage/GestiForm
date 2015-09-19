@@ -5,15 +5,12 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
-import javax.faces.convert.FacesConverter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.context.Theme;
 
 import be.atc.gestiform.formation.entity.Formation;
 import be.atc.gestiform.formation.service.FormationService;
-import be.atc.gestiform.session.services.SessionService;
 
 @Component("formationConverter")
 public class FormationConverter implements Converter {
@@ -21,9 +18,11 @@ public class FormationConverter implements Converter {
 	@Autowired
 	FormationService formationService;
  
-    public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+    	System.out.println("getAsObject : " + value);
         if(value != null && value.trim().length() > 0) {
             try {
+            	System.out.println("will try to found formation");
             	Formation formation = formationService.findOne(Integer.parseInt(value));
             	System.out.println("found" + formation);
                 return formation;
@@ -36,7 +35,8 @@ public class FormationConverter implements Converter {
         }
     }
  
-    public String getAsString(FacesContext fc, UIComponent uic, Object object) {
+	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
+    	System.out.println("getAsString: " + object);
         if(object != null && object instanceof Formation) {
         	System.out.println("get" + ((Formation) object).getId());
             return String.valueOf(((Formation) object).getId());

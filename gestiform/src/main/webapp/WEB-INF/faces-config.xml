@@ -3,6 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
+	<converter>
+		<converter-for-class>be.atc.gestiform.formation.entity.Formation</converter-for-class>
+		<converter-class>be.atc.gestiform.session.view.FormationConverter</converter-class>
+	</converter>
 
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
