@@ -2,24 +2,27 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	  xmlns:p="http://primefaces.org/ui">
 <h:head>
 </h:head>
 <h:body>
 
-	<p:dataTable var="session" value="#{sessionListView.allSession}">
-	    <p:column headerText="Nom">
-	        <h:outputText value="#{session.nom}" />
+	<p:dataTable var="sessionVar" value="#{sessionListView.allSession}">
+	    <p:column headerText="date de début">
+	        <h:outputText value="#{sessionVar.debut}" />
 	    </p:column>
 	 
-	    <p:column headerText="description">
-	        <h:outputText value="#{session.description}" />
+	    <p:column headerText="date de fin">
+	        <h:outputText value="#{sessionVar.fin}" />
+	    </p:column>
+	    
+   	    <p:column headerText="formation">
+	        <h:outputText value="#{sessionVar.formation.nom}" />
 	    </p:column>
 	    
 	   	<p:column headerText="">
 	   		<h:form>
-	   			<h:commandButton action="#{sessionListView.editSession(session.id)}" value="With Icon" styleClass="btn btn-default" />
+	   			<h:commandButton action="#{sessionListView.editSession(sessionVar.id)}" value="With Icon" styleClass="btn btn-default" />
 	   		</h:form>
 	    </p:column>
 	</p:dataTable>
