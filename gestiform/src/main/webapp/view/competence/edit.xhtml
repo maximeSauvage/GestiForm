@@ -13,7 +13,8 @@
 			<p:outputLabel value="Nom:" for="nom" />
 			<p:inputText id="nom" value="#{competenceEditView.competence.nom}" />
 			<br />
-			<h:commandButton value="Submit" action="#{competenceEditView.submit}" />
+			<h:commandButton value="annuler" action="#{competenceEditView.cancel}" />
+			<h:commandButton value="sauver" action="#{competenceEditView.submit}" />
 		</h:panelGrid>
 	</h:form>
 

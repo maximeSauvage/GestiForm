@@ -37,7 +37,22 @@ public class CompetenceEditView {
 	public void setCompetence(Competence competence) {
 		this.competence = competence;
 	}
+	
+	/**
+	 * method called when user want to cancel editing
+	 * @return
+	 */
+	public String cancel() {
+		System.out.println(competence.getNom());
+		System.out.println("cancel editing");
+		competence=new Competence();
+		return JsfUtil.SUCCESS;
+	}
 
+	/**
+	 * method called when submitting the edit form
+	 * @return
+	 */
 	public String submit() {
 		System.out.println(competence.getNom());
 		competence = competenceService.save(competence);
