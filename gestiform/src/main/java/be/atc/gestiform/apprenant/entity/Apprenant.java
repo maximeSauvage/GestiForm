@@ -1,9 +1,15 @@
 package be.atc.gestiform.apprenant.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import be.atc.gestiform.competence.entity.Competence;
 
 /**
  * the entity which represent an "apprenant" , the person who will suscribe to a session
@@ -23,6 +29,9 @@ public class Apprenant extends AbstractPersistable<Integer> {
 	
 	@ManyToOne
 	private Adresse adresse;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	private List<Competence> competences;
 	
 	public Apprenant() {
 	}
@@ -160,6 +169,20 @@ public class Apprenant extends AbstractPersistable<Integer> {
 	 */
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	/**
+	 * @return the competences
+	 */
+	public List<Competence> getCompetences() {
+		return competences;
+	}
+
+	/**
+	 * @param competences the competences to set
+	 */
+	public void setCompetences(List<Competence> competences) {
+		this.competences = competences;
 	}
 
 }

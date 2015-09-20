@@ -1,5 +1,8 @@
 package be.atc.gestiform.apprenant.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -8,6 +11,8 @@ import be.atc.gestiform.apprenant.entity.Adresse;
 import be.atc.gestiform.apprenant.entity.Apprenant;
 import be.atc.gestiform.apprenant.entity.Pays;
 import be.atc.gestiform.apprenant.service.ApprenantService;
+import be.atc.gestiform.competence.entity.Competence;
+import be.atc.gestiform.competence.service.CompetenceService;
 import be.atc.gestiform.util.JsfUtil;
 
 @Component("apprenantEditView")
@@ -16,6 +21,8 @@ public class ApprenantEditView {
 
 	@Autowired
 	ApprenantService apprenantService;
+	@Autowired
+	CompetenceService competenceService;
 
 	private Apprenant apprenant;
 
@@ -54,11 +61,35 @@ public class ApprenantEditView {
 		}
 		this.apprenant = apprenant;
 	}
+	
+	/**
+	 * return a list of competences avalaible for autocomplete input
+	 * @param query
+	 * @return
+	 */
+	public List<Competence> completeCompetence(String query) {
+        //TODO optimize
+        Iterable<Competence> allCompetences = competenceService.findAll();
+        List<Competence> filteredCompetences = new ArrayList<>();
+        
+        System.out.println("query" + query);
+         
+        for (Competence competence : allCompetences) {
+			if(competence.getNom().toLowerCase().startsWith(query)){
+				filteredCompetences.add(competence);
+				System.out.println("add formation " + competence.getNom());
+			}
+		}
+         
+        System.out.println(filteredCompetences.size());
+        return filteredCompetences;
+    }
 
 	public String submit() {
 		System.out.println(apprenant.getNom());
 		apprenant = apprenantService.save(apprenant);
 		System.out.println(apprenant.getNom());
+		apprenant = new Apprenant();
 		return JsfUtil.SUCCESS;
 	}
 

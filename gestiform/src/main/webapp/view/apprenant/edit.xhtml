@@ -10,37 +10,59 @@
 <h:body>
 	
 	<h:form>
-		<p:outputLabel value="Nom:" for="nom" />
-		<p:inputText id="nom" value="#{apprenantEditView.apprenant.nom}" />
-		<br/>
-		<p:outputLabel value="Prenom:" for="prenom" />
-		<p:inputText id="prenom" value="#{apprenantEditView.apprenant.prenom}" />
-		<br/>
-		<p:outputLabel value="Rue:" for="rue" />
-		<p:inputText id="rue" value="#{apprenantEditView.apprenant.rue}" />
-		<br/>
-		<p:outputLabel value="Numéro de rue" for="numRue" />
-		<p:inputText id="numRue" value="#{apprenantEditView.apprenant.numRue}" />
-		<br/>
-		<p:outputLabel value="Téléphone:" for="telephone" />
-		<p:inputText id="telephone" value="#{apprenantEditView.apprenant.telephone}" />
-		<br/>
-		<p:outputLabel value="Email:" for="email" />
-		<p:inputText id="email" value="#{apprenantEditView.apprenant.email}" />
-		<br/>
-		<p:outputLabel value="Registre national:" for="registreNational" />
-		<p:inputText id="registreNational" value="#{apprenantEditView.apprenant.registreNational}" />
-		<br/>
-		<p:outputLabel value="Code postal:" for="codePostal" />
-		<p:inputText id="codePostal" value="#{apprenantEditView.apprenant.adresse.codePostal}" />
-		<br/>
-		<p:outputLabel value="Localité:" for="localite" />
-		<p:inputText id="localite" value="#{apprenantEditView.apprenant.adresse.localite}" />
-		<br/>
-		<p:outputLabel value="Pays:" for="pays" />
-		<p:inputText id="pays" value="#{apprenantEditView.apprenant.adresse.pays.pays}" />
-		<br/>
-		<h:commandButton value="Submit" action="#{apprenantEditView.submit}" />
+		<h:panelGrid columns="3" cellpadding="6">
+			<p:outputLabel value="Nom:" for="nom" />
+			<p:inputText id="nom" value="#{apprenantEditView.apprenant.nom}" />
+			<br/>
+			<p:outputLabel value="Prenom:" for="prenom" />
+			<p:inputText id="prenom" value="#{apprenantEditView.apprenant.prenom}" />
+			<br/>
+			<p:outputLabel value="Rue:" for="rue" />
+			<p:inputText id="rue" value="#{apprenantEditView.apprenant.rue}" />
+			<br/>
+			<p:outputLabel value="Numéro de rue" for="numRue" />
+			<p:inputText id="numRue" value="#{apprenantEditView.apprenant.numRue}" />
+			<br/>
+			<p:outputLabel value="Téléphone:" for="telephone" />
+			<p:inputText id="telephone" value="#{apprenantEditView.apprenant.telephone}" />
+			<br/>
+			<p:outputLabel value="Email:" for="email" />
+			<p:inputText id="email" value="#{apprenantEditView.apprenant.email}" />
+			<br/>
+			<p:outputLabel value="Registre national:" for="registreNational" />
+			<p:inputText id="registreNational" value="#{apprenantEditView.apprenant.registreNational}" />
+			<br/>
+			<p:outputLabel value="Code postal:" for="codePostal" />
+			<p:inputText id="codePostal" value="#{apprenantEditView.apprenant.adresse.codePostal}" />
+			<br/>
+			<p:outputLabel value="Localité:" for="localite" />
+			<p:inputText id="localite" value="#{apprenantEditView.apprenant.adresse.localite}" />
+			<br/>
+			<p:outputLabel value="Pays:" for="pays" />
+			<p:inputText id="pays" value="#{apprenantEditView.apprenant.adresse.pays.pays}" />
+			<br/>
+			<p:outputLabel value="Possèdes ces compétences:" for="competences" />
+			<p:autoComplete id="competences" 
+							value="#{apprenantEditView.apprenant.competences}"
+			                completeMethod="#{apprenantEditView.completeCompetence}"
+			                var="competence"
+			                itemValue="#{competence}"
+			                itemLabel="#{competence.nom}"
+			                converter="#{competenceConverter}" 
+			                multiple="true"
+			                forceSelection="true"
+			>
+				<p:column style="width:10%">
+					<h:outputText styleClass="ui-theme ui-theme-#{competence.nom}" />
+				</p:column>
+			
+				<p:column>
+					<h:outputText value="#{competence.nom}" />
+				</p:column>
+			</p:autoComplete>
+			<br/>
+			<h:commandButton value="Submit" action="#{apprenantEditView.submit}" />
+		</h:panelGrid>
 	</h:form>
 
 </h:body>
