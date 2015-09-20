@@ -3,10 +3,13 @@ package be.atc.gestiform.formation.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import be.atc.gestiform.competence.entity.Competence;
 import be.atc.gestiform.session.entity.Session;
 
 /**
@@ -24,7 +27,10 @@ public class Formation extends AbstractPersistable<Integer> {
 	private boolean active;
 	
 	@OneToMany
-	private List<Session> session;
+	private List<Session> sessions;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	private List<Competence> competences;
 
 	/**
 	 * @return the nom
@@ -94,6 +100,27 @@ public class Formation extends AbstractPersistable<Integer> {
 	 */
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	/**
+	 * @return the sessions
+	 */
+	public List<Session> getSessions() {
+		return sessions;
+	}
+
+	/**
+	 * @return the competences
+	 */
+	public List<Competence> getCompetences() {
+		return competences;
+	}
+
+	/**
+	 * @param competences the competences to set
+	 */
+	public void setCompetences(List<Competence> competences) {
+		this.competences = competences;
 	}
 
 }
