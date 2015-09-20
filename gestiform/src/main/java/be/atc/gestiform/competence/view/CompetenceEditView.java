@@ -42,6 +42,7 @@ public class CompetenceEditView {
 		System.out.println(competence.getNom());
 		competence = competenceService.save(competence);
 		System.out.println(competence.getNom());
+		competence=new Competence();
 		return JsfUtil.SUCCESS;
 	}
 

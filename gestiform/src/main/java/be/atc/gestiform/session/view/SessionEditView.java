@@ -80,6 +80,7 @@ public class SessionEditView {
 		System.out.println("session formation : " + session.getFormation());
 		session = SessionService.save(session);
 		System.out.println("session : " + session);
+		session=new Session();
 		return JsfUtil.SUCCESS;
 	}
 	

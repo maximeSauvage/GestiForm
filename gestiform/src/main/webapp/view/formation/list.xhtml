@@ -8,6 +8,7 @@
 </h:head>
 <h:body>
 
+	<p:link outcome="edit.xhtml" value="ajouter formation"/>   
 	<p:dataTable var="formation" value="#{formationListView.allFormation}">
 	    <p:column headerText="Nom">
 	        <h:outputText value="#{formation.nom}" />
@@ -19,7 +20,7 @@
 	    
 	   	<p:column headerText="">
 	   		<h:form>
-	   			<h:commandButton action="#{formationListView.editFormation(formation.id)}" value="With Icon" styleClass="btn btn-default" />
+	   			<h:commandButton action="#{formationListView.editFormation(formation.id)}" value="editer" styleClass="btn btn-default" />
 	   		</h:form>
 	    </p:column>
 	</p:dataTable>

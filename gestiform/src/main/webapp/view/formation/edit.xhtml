@@ -27,6 +27,7 @@
 			<p:selectBooleanCheckbox id="active"
 				value="#{formationEditView.formation.active}" />
 			<br />
+			<p:outputLabel value="Competences requises:" for="competences" />
 			<p:autoComplete id="competences" 
 							value="#{formationEditView.formation.competences}"
 	                        completeMethod="#{formationEditView.completeCompetence}"

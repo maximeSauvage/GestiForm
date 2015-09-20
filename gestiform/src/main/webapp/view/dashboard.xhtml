@@ -9,17 +9,15 @@
 <h:body>
 
 	<h3>Responsive</h3>
-	<p:panelGrid columns="3" layout="grid">
-	    <p:link outcome="formation/edit.xhtml" value="ajout formation"/>   
-		<p:link outcome="formation/list.xhtml" value="liste formation"/>   
-		<p:link outcome="session/list.xhtml" value="planning des session"/>   
-
-		<p:link outcome="competence/edit.xhtml" value="ajout competence"/>
-		<p:link outcome="competence/list.xhtml" value="liste competence"/> 
-		<br/>
-		<p:link outcome="apprenant/edit.xhtml" value="ajout apprenant"/>   
-		<p:link outcome="apprenant/list.xhtml" value="liste apprenant"/>   
-		<p:link outcome="session/edit.xhtml" value="inscrire apprenant à une session"/>   
+	<p:panelGrid columns="2" layout="grid">
+		<p:link outcome="formation/list.xhtml" value="gérer formation"/>
+		
+		<p:link outcome="competence/list.xhtml" value="gérer competence"/> 
+		   
+		<p:link outcome="session/list.xhtml" value="gérer session"/>   
+		
+		<p:link outcome="apprenant/list.xhtml" value="gérer apprenant"/>   
+		  
 	</p:panelGrid>
 
 </h:body>

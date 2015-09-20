@@ -57,7 +57,7 @@ public class FormationEditView {
 	 */
 	public List<Competence> completeCompetence(String query) {
         //TODO optimize
-        Iterable<Competence> allCompetences = competenceService.findAll();//FIXME only formation which is "active"
+        Iterable<Competence> allCompetences = competenceService.findAll();
         List<Competence> filteredCompetences = new ArrayList<>();
         
         System.out.println("query" + query);
@@ -81,6 +81,7 @@ public class FormationEditView {
 		System.out.println(formation.getNom());
 		formation = formationService.save(formation);
 		System.out.println(formation.getNom());
+		formation=new Formation();
 		return JsfUtil.SUCCESS;
 	}
 }

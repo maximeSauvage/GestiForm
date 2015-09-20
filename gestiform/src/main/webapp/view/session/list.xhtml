@@ -7,6 +7,7 @@
 </h:head>
 <h:body>
 
+	<p:link outcome="edit.xhtml" value="ajouter session"/>
 	<p:dataTable var="sessionVar" value="#{sessionListView.allSession}">
 	    <p:column headerText="date de début">
 	        <h:outputText value="#{sessionVar.debut}" />
@@ -22,7 +23,7 @@
 	    
 	   	<p:column headerText="">
 	   		<h:form>
-	   			<h:commandButton action="#{sessionListView.editSession(sessionVar.id)}" value="With Icon" styleClass="btn btn-default" />
+	   			<h:commandButton action="#{sessionListView.editSession(sessionVar.id)}" value="editer" styleClass="btn btn-default" />
 	   		</h:form>
 	    </p:column>
 	</p:dataTable>

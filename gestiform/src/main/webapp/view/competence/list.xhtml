@@ -7,6 +7,7 @@
 </h:head>
 <h:body>
 
+	<p:link outcome="edit.xhtml" value="ajouter competence"/>
 	<p:dataTable var="competence" value="#{competenceListView.allCompetence}">
 	    <p:column headerText="Nom">
 	        <h:outputText value="#{competence.nom}" />
@@ -15,7 +16,7 @@
 	    
 	   	<p:column headerText="">
 	   		<h:form>
-	   			<h:commandButton action="#{competenceListView.editCompetence(competence.id)}" value="With Icon" styleClass="btn btn-default" />
+	   			<h:commandButton action="#{competenceListView.editCompetence(competence.id)}" value="editer" styleClass="btn btn-default" />
 	   		</h:form>
 	    </p:column>
 	</p:dataTable>

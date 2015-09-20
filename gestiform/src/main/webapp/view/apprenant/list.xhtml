@@ -8,6 +8,7 @@
 </h:head>
 <h:body>
 
+	<p:link outcome="edit.xhtml" value="nouvel apprenant"/>
 	<p:dataTable var="apprenant" value="#{apprenantListView.allApprenant}">
 	    <p:column headerText="Nom">
 	        <h:outputText value="#{apprenant.nom}" />
@@ -19,10 +20,11 @@
 	    
 	   	<p:column headerText="">
 	   		<h:form>
-	   			<h:commandButton action="#{apprenantListView.editAprennant(apprenant.id)}" value="With Icon" styleClass="btn btn-default" />
+	   			<h:commandButton action="#{apprenantListView.editAprennant(apprenant.id)}" value="editer" styleClass="btn btn-default" />
 	   		</h:form>
 	    </p:column>
 	</p:dataTable>
+	  
 
 </h:body>
 </html>
