@@ -3,29 +3,30 @@
 <html xmlns="http://www.w3c.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	  xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 </h:head>
 <h:body>
 	
 	<h:form>
-		<p:outputLabel value="Nom:" for="nom" />
-		<p:inputText id="nom" value="#{formationEditView.formation.nom}" />
-		<br/>
-		<p:outputLabel value="Description:" for="description" />
-		<p:inputText id="description" value="#{formationEditView.formation.description}" />
-		<br/>
-		<p:outputLabel value="Durée ( en jours ) de formation" for="duree" />
-		<p:inputText id="duree" value="#{formationEditView.formation.duree}" />
-		<br/>
-		<p:outputLabel value="Prix" for="prix" />
-		<p:inputText id="prix" value="#{formationEditView.formation.prix}" />
-		<br/>
-		<p:outputLabel value="Active ?" for="active" />
-		<p:selectBooleanCheckbox id="active" value="#{formationEditView.formation.active}" />
-		<br/>
-		<h:commandButton value="Submit" action="#{formationEditView.submit}" />
+		<h:panelGrid columns="3" cellpadding="6">
+			<p:outputLabel value="Nom:" for="nom" />
+			<p:inputText id="nom" value="#{formationEditView.formation.nom}" />
+			<br/>
+			<p:outputLabel value="Description:" for="description" />
+			<p:inputText id="description" value="#{formationEditView.formation.description}" />
+			<br/>
+			<p:outputLabel value="Durée ( en jours ) de formation" for="duree" />
+			<p:inputText id="duree" value="#{formationEditView.formation.duree}" />
+			<br/>
+			<p:outputLabel value="Prix" for="prix" />
+			<p:inputText id="prix" value="#{formationEditView.formation.prix}" />
+			<br/>
+			<p:outputLabel value="Active ?" for="active" />
+			<p:selectBooleanCheckbox id="active" value="#{formationEditView.formation.active}" />
+			<br/>
+			<h:commandButton value="Submit" action="#{formationEditView.submit}" />
+		</h:panelGrid>
 	</h:form>
 
 </h:body>
