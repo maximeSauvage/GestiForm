@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import be.atc.gestiform.apprenant.entity.Apprenant;
 import be.atc.gestiform.formation.entity.Formation;
 import be.atc.gestiform.formation.service.FormationService;
 import be.atc.gestiform.util.JsfUtil;
@@ -21,7 +20,7 @@ public class FormationListView {
 	
 	public Iterable<Formation> getAllFormation() {
 		System.out.println("find all");
-		return formationService.findAllFormation();
+		return formationService.findAll();
 	}
 	
 	public String editFormation(Integer id) {

@@ -20,7 +20,7 @@ public class ApprenantListView {
 	
 	public Iterable<Apprenant> getAllApprenant() {
 		System.out.println("find all");
-		return apprenantService.findAllApprenant();
+		return apprenantService.findAll();
 	}
 	
 	public String editAprennant(Integer id) {

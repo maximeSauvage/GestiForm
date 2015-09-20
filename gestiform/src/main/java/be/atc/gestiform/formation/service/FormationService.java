@@ -3,39 +3,36 @@ package be.atc.gestiform.formation.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import be.atc.gestiform.common.services.BaseService;
 import be.atc.gestiform.formation.entity.Formation;
 import be.atc.gestiform.formation.repository.FormationRepository;
 
 @Service
-public class FormationService {
+public class FormationService implements BaseService<Formation> {
 
 	@Autowired
 	FormationRepository formationRepository;
 
-	/**
-	 * Retrieves a formation by its id.
-	 * 
-	 * @param id must not be {@literal null}.
-	 * @return the apprenant with the given id or {@literal null} if none found
-	 * @throws IllegalArgumentException if {@code id} is {@literal null}
+	/* (non-Javadoc)
+	 * @see be.atc.gestiform.formation.service.BasicService#findOne(java.lang.Integer)
 	 */
+	@Override
 	public Formation findOne(Integer formationId) {
 		return formationRepository.findOne(formationId);
 	}
 
-	/**
-	 * find all formation in DB
-	 * @return
+	/* (non-Javadoc)
+	 * @see be.atc.gestiform.formation.service.BasicService#findAllFormation()
 	 */
-	public Iterable<Formation> findAllFormation() {
+	@Override
+	public Iterable<Formation> findAll() {
 		return formationRepository.findAll();
 	}
 
-	/**
-	 * save new or update existing formation
-	 * @param formation
-	 * @return
+	/* (non-Javadoc)
+	 * @see be.atc.gestiform.formation.service.BasicService#save(be.atc.gestiform.formation.entity.Formation)
 	 */
+	@Override
 	public Formation save(Formation formation) {
 		return formationRepository.save(formation);
 	}

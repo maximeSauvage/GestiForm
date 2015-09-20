@@ -55,7 +55,7 @@ public class SessionEditView {
 	
     public List<Formation> completeFormation(String query) {
         //TODO optimize
-        Iterable<Formation> allFormations = formationService.findAllFormation();
+        Iterable<Formation> allFormations = formationService.findAll();//FIXME only formation which is "active"
         List<Formation> filteredFormations = new ArrayList<>();
         
         System.out.println("query" + query);

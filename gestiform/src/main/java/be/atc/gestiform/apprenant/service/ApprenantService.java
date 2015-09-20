@@ -9,9 +9,10 @@ import be.atc.gestiform.apprenant.entity.Pays;
 import be.atc.gestiform.apprenant.repository.AdresseRepository;
 import be.atc.gestiform.apprenant.repository.ApprenantRepository;
 import be.atc.gestiform.apprenant.repository.PaysRepository;
+import be.atc.gestiform.common.services.BaseService;
 
 @Service
-public class ApprenantService {
+public class ApprenantService implements BaseService<Apprenant>{
 	
 	@Autowired
 	ApprenantRepository apprenantRepository;
@@ -20,7 +21,7 @@ public class ApprenantService {
 	@Autowired
 	PaysRepository paysRepository;
 	
-	public Iterable<Apprenant> findAllApprenant() {
+	public Iterable<Apprenant> findAll() {
 		
 		return apprenantRepository.findAll();
 	}
