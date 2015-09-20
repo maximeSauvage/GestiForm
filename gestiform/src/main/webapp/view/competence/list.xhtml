@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+
+	<p:dataTable var="competence" value="#{competenceListView.allCompetence}">
+	    <p:column headerText="Nom">
+	        <h:outputText value="#{competence.nom}" />
+	    </p:column>
+	 
+	    
+	   	<p:column headerText="">
+	   		<h:form>
+	   			<h:commandButton action="#{competenceListView.editCompetence(competence.id)}" value="With Icon" styleClass="btn btn-default" />
+	   		</h:form>
+	    </p:column>
+	</p:dataTable>
+
+</h:body>
+</html>
