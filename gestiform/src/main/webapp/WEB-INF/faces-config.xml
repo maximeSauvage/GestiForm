@@ -97,6 +97,10 @@
 		<converter-for-class>be.atc.gestiform.formation.entity.Formation</converter-for-class>
 		<converter-class>be.atc.gestiform.session.view.FormationConverter</converter-class>
 	</converter>
+	<converter>
+		<converter-for-class>be.atc.gestiform.competence.entity.Competence</converter-for-class>
+		<converter-class>be.atc.gestiform.formation.view.CompetenceConverter</converter-class>
+	</converter>
 	<!-- END converters -->
 
 	<!-- START spring specific -->

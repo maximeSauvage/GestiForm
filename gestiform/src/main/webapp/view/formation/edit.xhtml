@@ -1,29 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 </h:head>
 <h:body>
-	
+
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="6">
 			<p:outputLabel value="Nom:" for="nom" />
 			<p:inputText id="nom" value="#{formationEditView.formation.nom}" />
-			<br/>
+			<br />
 			<p:outputLabel value="Description:" for="description" />
-			<p:inputText id="description" value="#{formationEditView.formation.description}" />
-			<br/>
+			<p:inputText id="description"
+						value="#{formationEditView.formation.description}" />
+			<br />
 			<p:outputLabel value="Durée ( en jours ) de formation" for="duree" />
 			<p:inputText id="duree" value="#{formationEditView.formation.duree}" />
-			<br/>
+			<br />
 			<p:outputLabel value="Prix" for="prix" />
 			<p:inputText id="prix" value="#{formationEditView.formation.prix}" />
-			<br/>
+			<br />
 			<p:outputLabel value="Active ?" for="active" />
-			<p:selectBooleanCheckbox id="active" value="#{formationEditView.formation.active}" />
+			<p:selectBooleanCheckbox id="active"
+				value="#{formationEditView.formation.active}" />
+			<br />
+			<p:autoComplete id="competences" 
+							value="#{formationEditView.formation.competences}"
+	                        completeMethod="#{formationEditView.completeCompetence}"
+	                        var="competence"
+	                        itemValue="#{competence}"
+	                        itemLabel="#{competence.nom}"
+	                        converter="#{competenceConverter}" 
+	                        multiple="true"
+	                        forceSelection="true"
+			>
+				<p:column style="width:10%">
+					<h:outputText styleClass="ui-theme ui-theme-#{competence.nom}" />
+				</p:column>
+
+				<p:column>
+					<h:outputText value="#{competence.nom}" />
+				</p:column>
+			</p:autoComplete>
 			<br/>
 			<h:commandButton value="Submit" action="#{formationEditView.submit}" />
 		</h:panelGrid>
