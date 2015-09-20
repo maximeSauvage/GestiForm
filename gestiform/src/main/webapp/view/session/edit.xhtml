@@ -21,12 +21,13 @@
 			<br/>
 			<p:outputLabel for="formation" value="Formation : "  />
 			<p:autoComplete id="formation"
-							value="#{sessionEditView.selectedFormation}"
+							value="#{sessionEditView.session.formation}"
 	                        completeMethod="#{sessionEditView.completeFormation}"
 	                        var="formation"
 	                        itemValue="#{formation}"
 	                        itemLabel="#{formation.nom}"
 	                        converter="#{formationConverter}" 
+	                        dropdown="true"
 	                        forceSelection="true"
 			/>
 			<br/>

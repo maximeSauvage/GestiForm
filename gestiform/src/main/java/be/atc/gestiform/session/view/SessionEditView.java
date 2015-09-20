@@ -22,22 +22,6 @@ public class SessionEditView {
 	@Autowired
 	FormationService formationService;
 	
-	private Formation selectedFormation;
-
-	/**
-	 * @return the selectedFormation
-	 */
-	public Formation getSelectedFormation() {
-		return selectedFormation;
-	}
-
-	/**
-	 * @param selectedFormation the selectedFormation to set
-	 */
-	public void setSelectedFormation(Formation selectedFormation) {
-		this.selectedFormation = selectedFormation;
-	}
-
 	/**
 	 * the formation to edit
 	 */
@@ -94,10 +78,8 @@ public class SessionEditView {
 	public String submit() {
 		System.out.println("session : " + session.getDebut() + "-" + session.getFin());
 		System.out.println("session formation : " + session.getFormation());
-//		session = SessionService.save(session);
-		System.out.println("session : " + session.getDebut() + "-" + session.getFin());
-		System.out.println("session formation : " + session.getFormation());
-		System.out.println("selected formation : " + this.selectedFormation);
+		session = SessionService.save(session);
+		System.out.println("session : " + session);
 		return JsfUtil.SUCCESS;
 	}
 	
