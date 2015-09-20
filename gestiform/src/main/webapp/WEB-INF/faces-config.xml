@@ -3,52 +3,83 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
-	<converter>
-		<converter-for-class>be.atc.gestiform.formation.entity.Formation</converter-for-class>
-		<converter-class>be.atc.gestiform.session.view.FormationConverter</converter-class>
-	</converter>
-
+	
+	<!-- START apprenant rules -->
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-action>#{apprenantListView.editAprennant(apprenant.id)}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>view/apprenant/edit.xhtml</to-view-id>
+			<to-view-id>/view/apprenant/edit.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-action>#{apprenantEditView.submit}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>view/apprenant/list.xhtml</to-view-id>
+			<to-view-id>/view/apprenant/list.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
-	
+	<!-- END apprenant rules -->
+
+	<!-- START formation rules -->
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-action>#{formationListView.editFormation(formation.id)}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>view/formation/edit.xhtml</to-view-id>
+			<to-view-id>/view/formation/edit.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-action>#{formationEditView.submit}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>view/formation/list.xhtml</to-view-id>
+			<to-view-id>/view/formation/list.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
-	
-		<application>
+	<!-- END formation rules -->
+
+	<!-- START session rules -->
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{sessionListView.editSession(sessionVar.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/session/edit.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{sessionEditView.submit}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/session/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<!-- END session rules -->
+
+	<!-- START converters -->
+	<converter>
+		<converter-for-class>be.atc.gestiform.formation.entity.Formation</converter-for-class>
+		<converter-class>be.atc.gestiform.session.view.FormationConverter</converter-class>
+	</converter>
+	<!-- END converters -->
+
+	<!-- START spring specific -->
+	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	</application>
+	<!-- END spring specific -->
 </faces-config>

@@ -16,19 +16,19 @@ public class SessionListView {
 	@Autowired
 	SessionService sessionService;
 	@Autowired
-	FormationEditView formationEditView;
+	SessionEditView sessionEditView;
 	
 	public Iterable<Session> getAllSession() {
 		System.out.println("find all");
 		return sessionService.findAll();
 	}
 	
-	public String editFormation(Integer id) {
-//		if(id == null){
-//			//TODO message to the UI
-//			return JsfUtil.FAILURE;
-//		} 
-//		formationEditView.setFormation(sessionService.findOne(id));
+	public String editSession(Integer id) {
+		if(id == null){
+			//TODO message to the UI
+			return JsfUtil.FAILURE;
+		} 
+		sessionEditView.setSession(sessionService.findOne(id));
 		return JsfUtil.SUCCESS;
 	}
 
