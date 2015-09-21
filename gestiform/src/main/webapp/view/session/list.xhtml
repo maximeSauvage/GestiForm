@@ -7,6 +7,8 @@
 </h:head>
 <h:body>
 
+	<p:link outcome="/view/dashboard.xhtml" value="revenir à l'écran d'accueil"/>
+	<br/>
 	<p:link outcome="edit.xhtml" value="ajouter session"/>
 	<p:dataTable var="sessionVar" value="#{sessionListView.allSession}">
 	    <p:column headerText="date de début">

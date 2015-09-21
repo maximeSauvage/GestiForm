@@ -84,4 +84,15 @@ public class FormationEditView {
 		formation=new Formation();
 		return JsfUtil.SUCCESS;
 	}
+	
+	/**
+	 * method called when user want to cancel editing
+	 * @return
+	 */
+	public String cancel() {
+		System.out.println(formation.getNom());
+		System.out.println("cancel editing");
+		formation=new Formation();
+		return JsfUtil.SUCCESS;
+	}
 }

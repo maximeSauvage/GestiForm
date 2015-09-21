@@ -24,6 +24,16 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+		
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{apprenantEditView.cancel}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/apprenant/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 	<!-- END apprenant rules -->
 
 	<!-- START formation rules -->
@@ -41,6 +51,16 @@
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-action>#{formationEditView.submit}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/formation/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+		
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{formationEditView.cancel}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/view/formation/list.xhtml</to-view-id>
 			<redirect />
@@ -95,6 +115,16 @@
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-action>#{sessionEditView.submit}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/session/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+		
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{sessionEditView.cancel}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/view/session/list.xhtml</to-view-id>
 			<redirect />

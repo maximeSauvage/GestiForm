@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import be.atc.gestiform.competence.entity.Competence;
 import be.atc.gestiform.formation.entity.Formation;
 import be.atc.gestiform.formation.service.FormationService;
 import be.atc.gestiform.session.entity.Session;
@@ -80,6 +81,17 @@ public class SessionEditView {
 		System.out.println("session formation : " + session.getFormation());
 		session = SessionService.save(session);
 		System.out.println("session : " + session);
+		session=new Session();
+		return JsfUtil.SUCCESS;
+	}
+	
+	/**
+	 * method called when user want to cancel editing
+	 * @return
+	 */
+	public String cancel() {
+		System.out.println("session : " + session.getDebut() + "-" + session.getFin());
+		System.out.println("cancel editing");
 		session=new Session();
 		return JsfUtil.SUCCESS;
 	}

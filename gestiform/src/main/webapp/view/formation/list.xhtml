@@ -3,11 +3,13 @@
 <html xmlns="http://www.w3c.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+>
 <h:head>
 </h:head>
 <h:body>
 
+	<p:link outcome="/view/dashboard.xhtml" value="revenir à l'écran d'accueil"/>
+	<br/>
 	<p:link outcome="edit.xhtml" value="ajouter formation"/>   
 	<p:dataTable var="formation" value="#{formationListView.allFormation}">
 	    <p:column headerText="Nom">

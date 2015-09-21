@@ -27,7 +27,7 @@ public class Apprenant extends AbstractPersistable<Integer> {
 	private String email;
 	private String registreNational;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Adresse adresse;
 	
 	@ManyToMany(fetch=FetchType.EAGER)

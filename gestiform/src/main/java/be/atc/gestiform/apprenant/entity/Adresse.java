@@ -1,6 +1,7 @@
 package be.atc.gestiform.apprenant.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -15,7 +16,7 @@ public class Adresse extends AbstractPersistable<Integer> {
 	
 	private String codePostal;
 	private String localite;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Pays pays;
 	
 	public Adresse() {

@@ -27,6 +27,13 @@ public class ApprenantEditView {
 	private Apprenant apprenant;
 
 	public ApprenantEditView() {
+		init();
+	}
+
+	/**
+	 * init the member apprenant
+	 */
+	private void init() {
 		if (apprenant == null) {
 			apprenant = new Apprenant();
 		}
@@ -85,11 +92,27 @@ public class ApprenantEditView {
         return filteredCompetences;
     }
 
+	/**
+	 * submit for the form of edited formation
+	 * @return navigation
+	 */
 	public String submit() {
 		System.out.println(apprenant.getNom());
 		apprenant = apprenantService.save(apprenant);
 		System.out.println(apprenant.getNom());
 		apprenant = new Apprenant();
+		return JsfUtil.SUCCESS;
+	}
+	
+	/**
+	 * method called when user want to cancel editing
+	 * @return
+	 */
+	public String cancel() {
+		System.out.println(apprenant.getNom());
+		System.out.println("cancel editing");
+		apprenant = null;
+		init();
 		return JsfUtil.SUCCESS;
 	}
 
