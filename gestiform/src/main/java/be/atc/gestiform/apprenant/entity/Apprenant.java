@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -33,32 +34,10 @@ public class Apprenant extends AbstractPersistable<Integer> {
 	@ManyToMany(fetch=FetchType.EAGER)
 	private List<Competence> competences;
 	
-	public Apprenant() {
-	}
+	@OneToOne(mappedBy="apprenant")
+	private CompteCredit compteCredit;
 	
-	/**
-	 * @param nom
-	 * @param prenom
-	 * @param rue
-	 * @param numRue
-	 * @param telephone
-	 * @param email
-	 * @param registreNational
-	 * @param adresse
-	 */
-	public Apprenant(String nom, String prenom, String rue, String numRue, String telephone, String email,
-			String registreNational, Adresse adresse) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.rue = rue;
-		this.numRue = numRue;
-		this.telephone = telephone;
-		this.email = email;
-		this.registreNational = registreNational;
-		this.adresse = adresse;
-	}
-
+	
 	/**
 	 * @return the nom
 	 */
@@ -183,6 +162,20 @@ public class Apprenant extends AbstractPersistable<Integer> {
 	 */
 	public void setCompetences(List<Competence> competences) {
 		this.competences = competences;
+	}
+
+	/**
+	 * @return the compteCredit
+	 */
+	public CompteCredit getCompteCredit() {
+		return compteCredit;
+	}
+
+	/**
+	 * @param compteCredit the compteCredit to set
+	 */
+	public void setCompteCredit(CompteCredit compteCredit) {
+		this.compteCredit = compteCredit;
 	}
 
 }

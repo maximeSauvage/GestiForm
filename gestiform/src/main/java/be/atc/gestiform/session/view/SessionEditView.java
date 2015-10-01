@@ -53,16 +53,20 @@ public class SessionEditView {
 		this.session = session;
 	}
 
-	
+	/**
+	 * return autocomplete suggest list
+	 * @param query
+	 * @return
+	 */
     public List<Formation> completeFormation(String query) {
         //TODO optimize
-        Iterable<Formation> allFormations = formationService.findAll();//FIXME only formation which is "active"
+        Iterable<Formation> allFormations = formationService.findAll();
         List<Formation> filteredFormations = new ArrayList<>();
         
         System.out.println("query" + query);
          
         for (Formation formation : allFormations) {
-			if(formation.getNom().toLowerCase().startsWith(query)){
+			if(formation.isActive() && formation.getNom().toLowerCase().startsWith(query)){
 				filteredFormations.add(formation);
 				System.out.println("add formation " + formation.getNom());
 			}
@@ -79,6 +83,8 @@ public class SessionEditView {
 	public String submit() {
 		System.out.println("session : " + session.getDebut() + "-" + session.getFin());
 		System.out.println("session formation : " + session.getFormation());
+		
+
 		session = SessionService.save(session);
 		System.out.println("session : " + session);
 		session=new Session();

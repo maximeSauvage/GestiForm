@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import be.atc.gestiform.apprenant.entity.Adresse;
 import be.atc.gestiform.apprenant.entity.Apprenant;
+import be.atc.gestiform.apprenant.entity.CompteCredit;
 import be.atc.gestiform.apprenant.entity.Pays;
 import be.atc.gestiform.apprenant.service.ApprenantService;
 import be.atc.gestiform.competence.entity.Competence;
@@ -35,15 +36,22 @@ public class ApprenantEditView {
 	 */
 	private void init() {
 		if (apprenant == null) {
+			System.out.println("init apprenant");
 			apprenant = new Apprenant();
 		}
 		if (apprenant.getAdresse() == null) {
+			System.out.println("init adresse");
 			apprenant.setAdresse(new Adresse());
 		}
 		if (apprenant.getAdresse().getPays() == null) {
+			System.out.println("init pays");
 			Adresse adresse = apprenant.getAdresse();
 			adresse.setPays(new Pays());
 			apprenant.setAdresse(adresse);
+		}
+		if (apprenant.getCompteCredit() == null) {
+			System.out.println("init compte credit");
+			apprenant.setCompteCredit(new CompteCredit());
 		}
 	}
 
@@ -67,6 +75,7 @@ public class ApprenantEditView {
 			apprenant.setAdresse(adresse);
 		}
 		this.apprenant = apprenant;
+		init();
 	}
 	
 	/**
