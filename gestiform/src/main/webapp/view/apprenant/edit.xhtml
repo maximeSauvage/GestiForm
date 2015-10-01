@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3c.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	  xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
-</h:head>
-<h:body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+<ui:define name="content">
 	
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="6">
@@ -41,6 +38,9 @@
 			<p:outputLabel value="Pays:" for="pays" />
 			<p:inputText id="pays" value="#{apprenantEditView.apprenant.adresse.pays.pays}" />
 			<br/>
+			<p:outputLabel value="Solde compte crédit:" for="cpte" />
+			<p:inputText id="cpte" value="#{apprenantEditView.apprenant.compteCredit.solde}" />
+			<br/>
 			<p:outputLabel value="Possèdes ces compétences:" for="competences" />
 			<p:autoComplete id="competences" 
 							value="#{apprenantEditView.apprenant.competences}"
@@ -61,10 +61,10 @@
 				</p:column>
 			</p:autoComplete>
 			<br/>
-			<h:commandButton value="annuler" action="#{apprenantEditView.cancel}" />
-			<h:commandButton value="sauver" action="#{apprenantEditView.submit}" />
+			<p:commandButton value="annuler" action="#{apprenantEditView.cancel}" icon="fa fa-remove Fs16 White" styleClass="RedButton RaisedButton" />
+			<p:commandButton value="sauver" action="#{apprenantEditView.submit}" icon="fa fa-check Fs16 White" styleClass="GreenButton RaisedButton" />
 		</h:panelGrid>
 	</h:form>
 
-</h:body>
-</html>
+</ui:define>
+</ui:composition>

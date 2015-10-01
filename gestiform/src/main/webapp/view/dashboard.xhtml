@@ -1,24 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3c.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	>
-<h:head>
-</h:head>
-<h:body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+	<ui:define name="content">
+		<div class="Container90 Responsive100">
+	        <div class="ContainerIndent">
+	            <div class="Card ShadowEffect">
+	                <div class="Wid100 MarAuto">
+	                    <div class="ContainerIndent">
+	                        <div class="Container50 Responsive">
+	                            <div class="ContainerIndent">
+	                            	<a href="formation/list.xhtml">
+		                                <div class="Card ShadowEffect TurquoiseBack SoftGray TexAlCenter HoverEffect">
+		                                    <div class="EmptyBox5"></div>
+		                                    <i class="fa fa-book Fs50"></i>
+		                                    <div class="EmptyBox5"></div>
+		                                    <div class="FontRobotoLight Fs16 SoftGray DispBlock ClearBoth">Gestion formations</div>
+		                                </div>
+	                                </a>
+	                            </div>
+	                        </div>
+	                        <div class="Container50 Responsive">
+	                            <div class="ContainerIndent">
+		                            <a href="session/list.xhtml">
+		                                <div class="Card ShadowEffect BlueBack SoftGray TexAlCenter HoverEffect">
+		                                    <div class="EmptyBox5"></div>
+		                                    <i class="fa fa-calendar Fs50"></i>
+		                                    <div class="EmptyBox5"></div>
+		                                    <div class="FontRobotoLight Fs16 SoftGray DispBlock ClearBoth">Gestion de sessions de formation</div>
+		                                </div>
+		                            </a>
+	                            </div>
+	                        </div>
+	                        <div class="Container50 Responsive">
+	                            <div class="ContainerIndent">
+	                            	<a href="competence/list.xhtml">
+		                                <div class="Card ShadowEffect OrangeBack SoftGray TexAlCenter HoverEffect">
+		                                    <div class="EmptyBox5"></div>
+		                                    <i class="fa fa-lightbulb-o  Fs50"></i>
+		                                    <div class="EmptyBox5"></div>
+		                                    <div class="FontRobotoLight Fs16 SoftGray DispBlock ClearBoth">Gestion de competences</div>
+		                                </div>
+	                                </a>
+	                            </div>
+	                        </div>
+	                        <div class="Container50 Responsive">
+	                            <div class="ContainerIndent">
+	                            	<a href="apprenant/list.xhtml">
+		                                <div class="Card ShadowEffect GreenBack SoftGray TexAlCenter HoverEffect">
+		                                    <div class="EmptyBox5"></div>
+		                                    <i class="fa fa-users Fs50"></i>
+		                                    <div class="EmptyBox5"></div>
+		                                    <div class="FontRobotoLight Fs16 SoftGray DispBlock ClearBoth">Gestion des apprenants</div>
+		                                </div>
+	                                </a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div> 
+	            </div>
+	        </div>
+	    </div>
+	</ui:define>
 
-	<h3>Responsive</h3>
-	<p:panelGrid columns="2" layout="grid">
-		<p:link outcome="formation/list.xhtml" value="gérer formation"/>
-		
-		<p:link outcome="competence/list.xhtml" value="gérer competence"/> 
-		   
-		<p:link outcome="session/list.xhtml" value="gérer session"/>   
-		
-		<p:link outcome="apprenant/list.xhtml" value="gérer apprenant"/>   
-		  
-	</p:panelGrid>
-
-</h:body>
-</html>
+</ui:composition>

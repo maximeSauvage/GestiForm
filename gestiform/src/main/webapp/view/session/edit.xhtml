@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3c.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
-</h:head>
-<h:body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+<ui:define name="content">
 	
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="6">
@@ -31,10 +29,10 @@
 	                        forceSelection="true"
 			/>
 			<br/>
-			<h:commandButton value="annuler" action="#{sessionEditView.cancel}" />
-			<h:commandButton value="sauver" action="#{sessionEditView.submit}" />
+			<p:commandButton value="annuler" action="#{sessionEditView.cancel}" icon="fa fa-remove Fs16 White" styleClass="RedButton RaisedButton" />
+			<p:commandButton value="sauver" action="#{sessionEditView.submit}" icon="fa fa-check Fs16 White" styleClass="GreenButton RaisedButton" />
 		</h:panelGrid>
 	</h:form>
 
-</h:body>
-</html>
+</ui:define>
+</ui:composition>

@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3c.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui"
->
-<h:head>
-</h:head>
-<h:body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+<ui:define name="content">
 
-	<p:link outcome="/view/dashboard.xhtml" value="revenir à l'écran d'accueil"/>
-	<br/>
-	<p:link outcome="edit.xhtml" value="ajouter formation"/>   
 	<p:dataTable var="formation" value="#{formationListView.allFormation}">
+        <f:facet name="header">
+            Liste des formations
+        </f:facet>
 	    <p:column headerText="Nom">
 	        <h:outputText value="#{formation.nom}" />
 	    </p:column>
@@ -22,10 +20,12 @@
 	    
 	   	<p:column headerText="">
 	   		<h:form>
-	   			<h:commandButton action="#{formationListView.editFormation(formation.id)}" value="editer" styleClass="btn btn-default" />
+	   			<p:commandButton action="#{formationListView.editFormation(formation.id)}" value="editer" styleClass="btn btn-default" icon="fa fa-edit Fs16 White" />
 	   		</h:form>
 	    </p:column>
 	</p:dataTable>
+	<br/>
+	<p:button outcome="edit.xhtml" value="ajouter formation" styleClass="GreenButton RaisedButton" icon="fa fa-plus Fs16 White"/>  
 
-</h:body>
-</html>
+</ui:define>
+</ui:composition>
