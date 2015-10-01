@@ -89,6 +89,13 @@
             <artifactId>all-themes</artifactId>
             <version>1.0.10</version>
         </dependency>
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>rio</artifactId>
+            <version>2.0.2</version>
+            <scope>system</scope>
+    		<systemPath>/home/msauvage/Documents/javadev/rio-layout-2.0.1/rio-theme-2.0.1.jar</systemPath>
+        </dependency>
         
         <!-- DATABASE -->
         <dependency>
@@ -103,6 +110,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>
+        		spring-boot-starter-cloud-connectors
+        	</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.scala-lang</groupId>
+        	<artifactId>scala-library</artifactId>
+        	<version>2.10.4</version>
         </dependency>
     </dependencies>
 

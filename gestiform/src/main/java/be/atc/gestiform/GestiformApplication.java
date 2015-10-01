@@ -40,10 +40,11 @@ public class GestiformApplication extends SpringBootServletInitializer {
         return servletContext -> {
         	servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
             servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
-            servletContext.setInitParameter("primefaces.THEME", "bootstrap");
+            servletContext.setInitParameter("primefaces.THEME", "rio");
             servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", Boolean.TRUE.toString());
             servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
             servletContext.setInitParameter("primefaces.FONT_AWESOME", Boolean.TRUE.toString());
+//            servletContext.setInitParameter("javax.faces.FACELETS_LIBRARIES", "/WEB-INF/primefaces-rio.taglib.xml");
         };
     }
     
