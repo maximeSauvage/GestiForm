@@ -1,14 +1,17 @@
 package be.atc.gestiform.session.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import be.atc.gestiform.formation.entity.Formation;
+import be.atc.gestiform.inscription.entity.Inscription;
 
 @Entity
 public class Session extends AbstractPersistable<Integer>{
@@ -16,10 +19,14 @@ public class Session extends AbstractPersistable<Integer>{
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Formation formation;
 	
+	@OneToMany(mappedBy="session",fetch=FetchType.EAGER)
+	private List<Inscription> inscriptions;
+	
 	private Date debut;
 	private Date fin;
 	private Integer nbMaxApprenant;
 	private boolean organisee;
+	
 	/**
 	 * @return the formation
 	 */
@@ -80,8 +87,11 @@ public class Session extends AbstractPersistable<Integer>{
 	public void setOrganisee(boolean organisee) {
 		this.organisee = organisee;
 	}
-	
-	
-	
+	/**
+	 * @return the inscriptions
+	 */
+	public Iterable<Inscription> getInscriptions() {
+		return inscriptions;
+	}
 
 }

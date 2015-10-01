@@ -110,6 +110,56 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{sessionListView.gererInscription(sessionVar.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/inscription/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{inscriptionListView.deleteInscription(inscription.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/inscription/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{inscriptionEditView.ajoutInscription(inscriptionListView.session.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/inscription/edit.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{inscriptionEditView.submit}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/inscription/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+		
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{inscriptionEditView.cancel}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/inscription/list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
@@ -140,6 +190,10 @@
 	<converter>
 		<converter-for-class>be.atc.gestiform.competence.entity.Competence</converter-for-class>
 		<converter-class>be.atc.gestiform.formation.view.CompetenceConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-for-class>be.atc.gestiform.apprenant.entity.Apprenant</converter-for-class>
+		<converter-class>be.atc.gestiform.inscription.view.ApprenantConverter</converter-class>
 	</converter>
 	<!-- END converters -->
 
