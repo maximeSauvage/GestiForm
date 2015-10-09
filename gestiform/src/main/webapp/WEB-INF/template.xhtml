@@ -22,15 +22,18 @@
     </h:head>
 
     <h:body>
+    
+    	<p:growl id="growl" sticky="true" />
         
         <ui:include src="topbar.xhtml" />
         
         <div id="wrapper">
+        	
             <div id="wrapperIndent">
-
+				
                 <div id="layout-portlets-cover">
-                    
-                     <ui:insert name="content">
+					
+                    <ui:insert name="content">
                         Template
                     </ui:insert>
                     

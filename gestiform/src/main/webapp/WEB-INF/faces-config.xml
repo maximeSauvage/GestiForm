@@ -4,6 +4,15 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
 	
+	<!-- START spring specific -->
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+	    <lifecycle>
+        <phase-listener>org.springframework.web.jsf.DelegatingPhaseListenerMulticaster</phase-listener>
+    </lifecycle>
+	<!-- END spring specific -->
+	
 	<!-- START apprenant rules -->
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
@@ -114,6 +123,16 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
+			<from-action>#{sessionListView.showInscriptionSessionTest(sessionTestVar.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/view/inscription/list2.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
 			<from-action>#{sessionListView.gererInscription(sessionVar.id)}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/view/inscription/list.xhtml</to-view-id>
@@ -136,6 +155,16 @@
 		<navigation-case>
 			<from-action>#{inscriptionEditView.ajoutInscription(inscriptionListView.session.id)}</from-action>
 			<from-outcome>success</from-outcome>
+			<to-view-id>/view/inscription/edit.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{inscriptionEditView.submit}</from-action>
+			<from-outcome>failed</from-outcome>
 			<to-view-id>/view/inscription/edit.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
@@ -197,9 +226,4 @@
 	</converter>
 	<!-- END converters -->
 
-	<!-- START spring specific -->
-	<application>
-		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-	</application>
-	<!-- END spring specific -->
 </faces-config>

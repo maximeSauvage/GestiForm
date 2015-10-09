@@ -23,6 +23,14 @@
 	        <h:outputText value="#{sessionVar.formation.nom}" />
 	    </p:column>
 	    
+	    <p:column headerText="places réservées">
+	        <h:outputText value="#{sessionVar.inscriptions.size()} / #{sessionVar.nbMaxApprenant}" />
+	    </p:column>
+	    
+	   	<p:column headerText="organisées?">
+	        <h:outputText value="#{sessionVar.organisee? 'oui' : 'non'}" />
+	    </p:column>
+	    
 	   	<p:column headerText="">
 	   		<h:form>
 	   			<p:commandButton action="#{sessionListView.editSession(sessionVar.id)}" value="editer session" styleClass="btn btn-default" icon="fa fa-edit Fs16 White" />
@@ -35,6 +43,27 @@
 	</p:dataTable>
 	<br/>
 	<p:button outcome="edit.xhtml" value="ajouter session" styleClass="GreenButton RaisedButton" icon="fa fa-plus Fs16 White"/>
+	<br/>
+	<br/>
+	<br/>
+	<p:dataTable var="sessionTestVar" value="#{sessionListView.allSessionTest}">
+        <f:facet name="header">
+            Liste des sessions de test
+        </f:facet>
+	    <p:column headerText="date">
+	        <h:outputText value="#{sessionTestVar.date}" />
+	    </p:column>
+	    
+	   	<p:column headerText="candidats">
+	        <h:outputText value="#{sessionTestVar.inscriptions.size()}" />
+	    </p:column>
+	 
+	    <p:column headerText="">
+			<h:form>
+	   			<p:commandButton action="#{sessionListView.showInscriptionSessionTest(sessionTestVar.id)}" value="gérer inscriptions" styleClass="btn btn-default" icon="fa fa-th-list Fs16 White" />
+	   		</h:form>
+	    </p:column>
+	</p:dataTable>
 
 </ui:define>
 </ui:composition>

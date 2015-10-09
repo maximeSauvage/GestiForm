@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 import be.atc.gestiform.inscription.view.InscriptionEditView;
 import be.atc.gestiform.inscription.view.InscriptionListView;
 import be.atc.gestiform.session.entity.Session;
+import be.atc.gestiform.session.entity.TestSession;
 import be.atc.gestiform.session.services.SessionService;
+import be.atc.gestiform.session.services.TestSessionService;
 import be.atc.gestiform.util.JsfUtil;
 
 @Component("sessionListView")
@@ -22,10 +24,16 @@ public class SessionListView {
 	InscriptionEditView inscriptionEditView;
 	@Autowired
 	InscriptionListView inscriptionListView;
+	@Autowired
+	TestSessionService testSessionService;
 	
 	public Iterable<Session> getAllSession() {
 		System.out.println("find all");
 		return sessionService.findAll();
+	}
+	
+	public Iterable<TestSession> getAllSessionTest() {
+		return testSessionService.findAll();
 	}
 	
 	public String editSession(Integer id) {
@@ -34,6 +42,15 @@ public class SessionListView {
 			return JsfUtil.FAILURE;
 		} 
 		sessionEditView.setSession(sessionService.findOne(id));
+		return JsfUtil.SUCCESS;
+	}
+	
+	public String showInscriptionSessionTest(Integer id) {
+		if(id == null){
+			//TODO message to the UI
+			return JsfUtil.FAILURE;
+		} 
+		inscriptionListView.setSessionTest(id);
 		return JsfUtil.SUCCESS;
 	}
 	

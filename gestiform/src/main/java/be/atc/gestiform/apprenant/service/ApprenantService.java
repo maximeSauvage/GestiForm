@@ -60,8 +60,10 @@ public class ApprenantService implements BaseService<Apprenant>{
 		
 		//save comptecredit
 		compteCredit = compteCreditRepository.save(compteCredit);
-		result.setCompteCredit(compteCredit);
 		compteCredit.setApprenant(result);
+		compteCredit = compteCreditRepository.save(compteCredit);
+		result.setCompteCredit(compteCredit);
+		
 		
 		//save apprenant
 		result = apprenantRepository.save(result);

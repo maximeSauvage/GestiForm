@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import be.atc.gestiform.session.entity.TestSession;
 
 public interface TestSessionRepository extends CrudRepository<TestSession,Integer> {
+
+	Iterable<TestSession> findAllByOrderByDateAsc();
 }

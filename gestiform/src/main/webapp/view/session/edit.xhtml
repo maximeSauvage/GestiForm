@@ -9,13 +9,13 @@
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="6">
 			<p:outputLabel value="Date de début:" for="debut" />
-			<p:calendar id="debut"  navigator="true" pattern="dd-MM-yyyy" mask="true" value="#{sessionEditView.session.debut}" />
+			<p:calendar id="debut"  navigator="true" pattern="dd-MM-yyyy" mask="true" value="#{sessionEditView.session.debut}" required="true"/>
 			<br/>
 			<p:outputLabel value="Date de fin:" for="fin" />
-			<p:calendar id="fin"  navigator="true" pattern="dd-MM-yyyy" mask="true" value="#{sessionEditView.session.fin}" />
+			<p:calendar id="fin"  navigator="true" pattern="dd-MM-yyyy" mask="true" value="#{sessionEditView.session.fin}" required="true"/>
 			<br/>
 			<p:outputLabel value="Nombre maximum d'apprenant:" for="maxApp" />
-			<p:inputText id="maxApp" value="#{sessionEditView.session.nbMaxApprenant}" />
+			<p:inputText id="maxApp" value="#{sessionEditView.session.nbMaxApprenant}" required="true"/>
 			<br/>
 			<p:outputLabel for="formation" value="Formation : "  />
 			<p:autoComplete id="formation"
@@ -27,10 +27,11 @@
 	                        converter="#{formationConverter}" 
 	                        dropdown="true"
 	                        forceSelection="true"
+	                        required="true"
 			/>
 			<br/>
 			<p:commandButton value="annuler" action="#{sessionEditView.cancel}" icon="fa fa-remove Fs16 White" styleClass="RedButton RaisedButton" />
-			<p:commandButton value="sauver" action="#{sessionEditView.submit}" icon="fa fa-check Fs16 White" styleClass="GreenButton RaisedButton" />
+			<p:commandButton value="sauver" action="#{sessionEditView.submit}" icon="fa fa-check Fs16 White" styleClass="GreenButton RaisedButton" update="all" />
 		</h:panelGrid>
 	</h:form>
 

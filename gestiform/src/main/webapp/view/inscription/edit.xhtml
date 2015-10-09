@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+<ui:define name="content">
+	
+	<h:form>
+		<h:panelGrid columns="3" cellpadding="6">
+			<h:outputText value="#{inscriptionEditView.session.formation.nom} : #{inscriptionEditView.session.debut} - #{inscriptionEditView.session.fin} " />
+			<p:autoComplete id="apprenant"
+							value="#{inscriptionEditView.apprenant}"
+	                        completeMethod="#{inscriptionEditView.completeApprenant}"
+	                        var="apprenant"
+	                        itemValue="#{apprenant}"
+	                        itemLabel="#{apprenant.nom} #{apprenant.prenom}"
+	                        converter="#{apprenantConverter}" 
+	                        dropdown="true"
+			/>
+			<br/>
+			<p:commandButton value="annuler" action="#{inscriptionEditView.cancel}" icon="fa fa-remove Fs16 White" styleClass="RedButton RaisedButton"/>
+			<p:commandButton value="sauver" action="#{inscriptionEditView.submit}" icon="fa fa-check Fs16 White" styleClass="GreenButton RaisedButton" update="growl"/>
+		</h:panelGrid>
+	</h:form>
+
+</ui:define>
+</ui:composition>

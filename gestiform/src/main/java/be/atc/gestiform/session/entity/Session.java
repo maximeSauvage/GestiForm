@@ -14,7 +14,7 @@ import be.atc.gestiform.formation.entity.Formation;
 import be.atc.gestiform.inscription.entity.Inscription;
 
 @Entity
-public class Session extends AbstractPersistable<Integer>{
+public class Session extends AbstractPersistable<Integer> {
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Formation formation;
@@ -90,7 +90,7 @@ public class Session extends AbstractPersistable<Integer>{
 	/**
 	 * @return the inscriptions
 	 */
-	public Iterable<Inscription> getInscriptions() {
+	public List<Inscription> getInscriptions() {
 		return inscriptions;
 	}
 

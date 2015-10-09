@@ -3,6 +3,9 @@ package be.atc.gestiform.inscription.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -13,13 +16,16 @@ import be.atc.gestiform.competence.entity.Competence;
 import be.atc.gestiform.formation.entity.Formation;
 import be.atc.gestiform.inscription.entity.Inscription;
 import be.atc.gestiform.inscription.service.InscriptionService;
+import be.atc.gestiform.inscription.service.TicketService;
 import be.atc.gestiform.session.entity.Session;
+import be.atc.gestiform.session.entity.TestSession;
 import be.atc.gestiform.session.services.SessionService;
+import be.atc.gestiform.session.services.TestSessionService;
 import be.atc.gestiform.util.JsfUtil;
 
 @Component("inscriptionEditView")
 @Scope("session")
-public class InscriptionEditView {
+public class InscriptionEditView{
 	
 	@Autowired
 	ApprenantService apprenantService;
@@ -28,13 +34,17 @@ public class InscriptionEditView {
 	@Autowired
 	SessionService sessionService;
 	@Autowired
+	TestSessionService testSessionService;
+	@Autowired
 	InscriptionListView inscriptionListView;
+	@Autowired
+	TicketService ticketService;
 	
 	private Inscription inscription;
 	
 	public InscriptionEditView() {
 		if(inscription == null) {
-			inscription = new Inscription();
+			reset();
 		}
 	}
 
@@ -105,34 +115,75 @@ public class InscriptionEditView {
 	}
     
 	/**
-	 * submit for the form of edited formation
+	 * submit for the form of edited inscription
 	 * @return navigation
 	 */
 	public String submit() {
 		System.out.println("inscription editing");
 		System.out.println("inscription : " + getSession().getDebut() + "-" + getSession().getFin());
 		System.out.println("inscription formation : " + getSession().getFormation());
+		
+		if( ! ticketService.assertNewSoldePositif(inscription)){
+			System.out.println("new solde negative !");
+	        JsfUtil.showErrorMessage("l'apprenant n'a pas assez de crédit pour être inscrit");
+	        
+	        return JsfUtil.FAILURE;
+		}
+		System.out.println("new solde positive");
 		//get competences of session
-		Formation formation = inscription.getSession() .getFormation();
-		List<Competence> competencesSession = formation.getCompetences();
+		Formation formation = inscription.getSession().getFormation();
+		
+		List<Competence> competencesFormation = new ArrayList<>();
+		if(formation.getCompetences() != null && ! formation.getCompetences().isEmpty()) {
+			
+			competencesFormation = formation.getCompetences();
+			
+		}
 		//get competence of apprenant
 		Apprenant apprenant = inscription.getApprenant();
 		List<Competence> competencesApprenant = apprenant.getCompetences();
+		if(apprenant.getCompetences() != null && ! apprenant.getCompetences().isEmpty()) {
+			
+			competencesApprenant = apprenant.getCompetences();
+			
+		}
 		//check if apprenant has competence
 		List<Competence> missingCompetences = new ArrayList<>();
-		for (Competence competenceSession : competencesSession) {
+		for (Competence competenceSession : competencesFormation) {
 			if(! competencesApprenant.contains(competenceSession)){
 				missingCompetences.add(competenceSession);
 			}
 		}
-		//is not, organize test session
-		System.out.println("organize test session");
-		//save sessions		
+		
+		
+		//if missing competence create session test		
+		if( ! missingCompetences.isEmpty()) {
+			//is not, organize test session
+			System.out.println("organize test session");
+			inscription.setHasCompetence(false);
+			TestSession testSession = testSessionService.FindNextNotFullTestSessionBeforeSession(inscription.getSession().getId());
+			System.out.println(testSession.getDate());
+			inscription.setTestSession(testSession);
+		}
+		
+		//save inscription
 		inscription = inscriptionService.save(inscription);
 		System.out.println("inscription : " + inscription.getSession());
 		inscriptionListView.setSessionId(inscription.getSession().getId());
-		inscription=new Inscription();
+
+		//generate ticket
+		ticketService.generateTicket(inscription);
+		
+		//clear working data
+		reset();
 		return JsfUtil.SUCCESS;
+	}
+
+	/**
+	 * reset non transiant value of bean
+	 */
+	public void reset() {
+		inscription=new Inscription();
 	}
 	
 	/**
@@ -142,7 +193,7 @@ public class InscriptionEditView {
 	public String cancel() {
 		System.out.println("inscription : " + getSession().getDebut() + "-" + getSession().getFin());
 		System.out.println("cancel editing");
-		inscription=new Inscription();
+		reset();
 		return JsfUtil.SUCCESS;
 	}
 

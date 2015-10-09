@@ -11,6 +11,7 @@ import be.atc.gestiform.apprenant.service.ApprenantService;
 import be.atc.gestiform.inscription.entity.Inscription;
 import be.atc.gestiform.inscription.service.InscriptionService;
 import be.atc.gestiform.session.entity.Session;
+import be.atc.gestiform.session.entity.TestSession;
 import be.atc.gestiform.session.services.SessionService;
 import be.atc.gestiform.util.JsfUtil;
 
@@ -26,6 +27,7 @@ public class InscriptionListView {
 	SessionService sessionService;
 	
 	private Integer sessionId;
+	private Integer sessionTestId;
 
 	/**
 	 * @return the session
@@ -49,12 +51,25 @@ public class InscriptionListView {
 	}
 	
 	/**
+	 * @return the inscriptions
+	 */
+	public List<Inscription> getInscriptionsTest() {
+		return inscriptionService.findByTestSession_Id(sessionTestId);
+	}
+	
+	/**
 	 * remove inscription form db
 	 * @param id
 	 */
 	public String deleteInscription(Integer id) {
 		inscriptionService.delete(id);
 		return JsfUtil.SUCCESS;
+	}
+
+	public void setSessionTest(Integer id) {
+		sessionId = null;
+		sessionTestId = id;
+		
 	}
 
 }

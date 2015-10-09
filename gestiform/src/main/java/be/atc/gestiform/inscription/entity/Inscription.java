@@ -3,7 +3,9 @@ package be.atc.gestiform.inscription.entity;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -16,15 +18,20 @@ public class Inscription extends AbstractPersistable<Integer>{
 	
 	private Date dateInscription;
 	private boolean presenceFormation;
+	private boolean hasCompetence;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Apprenant apprenant;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Session session;
 	
 	@ManyToOne
 	private TestSession testSession;
+	
+//	@OneToOne(mappedBy="inscription",fetch=FetchType.EAGER)
+//	private Ticket ticket;
+	
 
 	/**
 	 * @return the dateInscription
@@ -81,5 +88,61 @@ public class Inscription extends AbstractPersistable<Integer>{
 	public void setSession(Session session) {
 		this.session = session;
 	}
+
+	/**
+	 * @return the hasCompetence
+	 */
+	public boolean isHasCompetence() {
+		return hasCompetence;
+	}
+
+	/**
+	 * @param hasCompetence the hasCompetence to set
+	 */
+	public void setHasCompetence(boolean hasCompetence) {
+		this.hasCompetence = hasCompetence;
+	}
+
+	/**
+	 * @return the testSession
+	 */
+	public TestSession getTestSession() {
+		return testSession;
+	}
+
+	/**
+	 * @param testSession the testSession to set
+	 */
+	public void setTestSession(TestSession testSession) {
+		this.testSession = testSession;
+	}
+
+//	/**
+//	 * @return the ticket
+//	 */
+//	public Ticket getTicket() {
+//		return ticket;
+//	}
+//
+//	/**
+//	 * @param ticket the ticket to set
+//	 */
+//	public void setTicket(Ticket ticket) {
+//		this.ticket = ticket;
+//	}
+
+//	/**
+//	 * @return the ticket
+//	 */
+//	public Ticket getTicket() {
+//		return ticket;
+//	}
+//
+//	/**
+//	 * @param ticket the ticket to set
+//	 */
+//	public void setTicket(Ticket ticket) {
+//		this.ticket = ticket;
+//	}
 	
 }

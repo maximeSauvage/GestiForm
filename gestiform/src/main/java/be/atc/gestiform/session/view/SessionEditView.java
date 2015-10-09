@@ -11,6 +11,7 @@ import be.atc.gestiform.competence.entity.Competence;
 import be.atc.gestiform.formation.entity.Formation;
 import be.atc.gestiform.formation.service.FormationService;
 import be.atc.gestiform.session.entity.Session;
+import be.atc.gestiform.session.entity.TestSession;
 import be.atc.gestiform.session.services.SessionService;
 import be.atc.gestiform.util.JsfUtil;
 
@@ -27,6 +28,8 @@ public class SessionEditView {
 	 * the formation to edit
 	 */
 	private Session session;
+	
+	private TestSession testSession;
 
 
 	public SessionEditView() {
@@ -52,7 +55,7 @@ public class SessionEditView {
 	public void setSession(Session session) {
 		this.session = session;
 	}
-
+	
 	/**
 	 * return autocomplete suggest list
 	 * @param query
@@ -101,5 +104,5 @@ public class SessionEditView {
 		session=new Session();
 		return JsfUtil.SUCCESS;
 	}
-	
+
 }

@@ -10,4 +10,6 @@ public interface InscriptionRepository extends CrudRepository<Inscription, Integ
 
 	public List<Inscription> findBySession_Id(Integer id);
 
+	public List<Inscription> findByTestSession_Id(Integer id);
+
 }

@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+	<ui:define name="content">
+		<div class="Container90 Responsive100">
+	        <div class="ContainerIndent">
+	            <div class="Card ShadowEffect">
+	                <div class="Wid100 MarAuto">
+	               		<h:form>
+	   						<p:commandButton action="#{settingsView.generateTestSessions}" value="générer dates sessions de test" styleClass="btn btn-default" icon="fa fa-edit Fs16 White" />
+	   						<p:commandButton action="#{settingsView.organizeSession}" value="organiser les sessions qui remplissent les conditions" styleClass="btn btn-default" icon="fa fa-edit Fs16 White" />
+	   					</h:form>
+	                </div> 
+	            </div>
+	        </div>
+	    </div>
+	</ui:define>
+
+</ui:composition>

@@ -8,6 +8,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import be.atc.gestiform.competence.entity.Competence;
@@ -21,6 +22,7 @@ import be.atc.gestiform.competence.entity.Competence;
 public class Apprenant extends AbstractPersistable<Integer> {
 
 	private String nom;
+	@NotBlank
 	private String prenom;
 	private String rue;
 	private String numRue;

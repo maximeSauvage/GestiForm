@@ -38,6 +38,15 @@ public class InscriptionService implements BaseService<Inscription>{
 	public List<Inscription> findBySession_Id(Integer id) {
 		return inscriptionRepository.findBySession_Id(id);
 	}
+	
+	/**
+	 * find all inscription of a test session
+	 * @param id
+	 * @return
+	 */
+	public List<Inscription> findByTestSession_Id(Integer id) {
+		return inscriptionRepository.findByTestSession_Id(id);
+	}
 
 	public void delete(Integer id) {
 		inscriptionRepository.delete(id);

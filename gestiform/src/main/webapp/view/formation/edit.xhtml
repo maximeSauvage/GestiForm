@@ -9,21 +9,21 @@
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="6">
 			<p:outputLabel value="Nom:" for="nom" />
-			<p:inputText id="nom" value="#{formationEditView.formation.nom}" />
+			<p:inputText id="nom" value="#{formationEditView.formation.nom}" required="true"><f:validateLength minimum="2" /></p:inputText>
 			<br />
 			<p:outputLabel value="Description:" for="description" />
 			<p:inputText id="description"
-						value="#{formationEditView.formation.description}" />
+						value="#{formationEditView.formation.description}" required="true"><f:validateLength minimum="2" /></p:inputText>
 			<br />
 			<p:outputLabel value="Durée ( en jours ) de formation" for="duree" />
-			<p:inputText id="duree" value="#{formationEditView.formation.duree}" />
+			<p:inputText id="duree" value="#{formationEditView.formation.duree}" required="true"><f:validateLength minimum="2" /></p:inputText>
 			<br />
 			<p:outputLabel value="Prix" for="prix" />
-			<p:inputText id="prix" value="#{formationEditView.formation.prix}" />
+			<p:inputText id="prix" value="#{formationEditView.formation.prix}" required="true"><f:validateLength minimum="2" /></p:inputText>
 			<br />
 			<p:outputLabel value="Active ?" for="active" />
 			<p:selectBooleanCheckbox id="active"
-				value="#{formationEditView.formation.active}" />
+				value="#{formationEditView.formation.active}" required="true"/>
 			<br />
 			<p:outputLabel value="Competences requises:" for="competences" />
 			<p:autoComplete id="competences" 

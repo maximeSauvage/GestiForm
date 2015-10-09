@@ -107,6 +107,14 @@ public class ApprenantEditView {
 	 */
 	public String submit() {
 		System.out.println(apprenant.getNom());
+		if(! apprenant.isNew()) {
+			Apprenant oldApprenant = apprenantService.findOne(apprenant.getId());
+			if(oldApprenant.getCompteCredit().getSolde() > apprenant.getCompteCredit().getSolde()) {
+				JsfUtil.showErrorMessage("le nouveau solde doit être supérieur au solde précédent");
+				return JsfUtil.FAILURE;
+			}
+		}
+		
 		apprenant = apprenantService.save(apprenant);
 		System.out.println(apprenant.getNom());
 		apprenant = new Apprenant();

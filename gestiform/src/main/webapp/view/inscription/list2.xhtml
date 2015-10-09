@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+<ui:define name="content">
+
+	<p:dataTable var="inscription" value="#{inscriptionListView.inscriptionsTest}">
+        <f:facet name="header">
+            Liste des inscriptions à la session de test
+        </f:facet>
+	    <p:column headerText="Nom">
+	        <h:outputText value="#{inscription.apprenant.nom}" />
+	    </p:column>
+	 
+	    <p:column headerText="Email">
+	        <h:outputText value="#{inscription.apprenant.email}" />
+	    </p:column>
+	    
+	</p:dataTable>
+
+</ui:define>
+</ui:composition>

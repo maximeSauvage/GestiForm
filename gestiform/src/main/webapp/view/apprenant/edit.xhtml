@@ -9,37 +9,37 @@
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="6">
 			<p:outputLabel value="Nom:" for="nom" />
-			<p:inputText id="nom" value="#{apprenantEditView.apprenant.nom}" />
+			<p:inputText id="nom" value="#{apprenantEditView.apprenant.nom}" required="true"><f:validateLength minimum="2" /></p:inputText>
 			<br/>
 			<p:outputLabel value="Prenom:" for="prenom" />
-			<p:inputText id="prenom" value="#{apprenantEditView.apprenant.prenom}" />
+			<p:inputText id="prenom" value="#{apprenantEditView.apprenant.prenom}"/>
 			<br/>
 			<p:outputLabel value="Rue:" for="rue" />
-			<p:inputText id="rue" value="#{apprenantEditView.apprenant.rue}" />
+			<p:inputText id="rue" value="#{apprenantEditView.apprenant.rue}" required="true"><f:validateLength minimum="2" /></p:inputText>
 			<br/>
 			<p:outputLabel value="Numéro de rue" for="numRue" />
-			<p:inputText id="numRue" value="#{apprenantEditView.apprenant.numRue}" />
+			<p:inputText id="numRue" value="#{apprenantEditView.apprenant.numRue}" required="required"><f:validateLength minimum="2" /></p:inputText>
 			<br/>
 			<p:outputLabel value="Téléphone:" for="telephone" />
-			<p:inputText id="telephone" value="#{apprenantEditView.apprenant.telephone}" />
+			<p:inputText id="telephone" value="#{apprenantEditView.apprenant.telephone}" required="required"><f:validateLength minimum="2" /></p:inputText>
 			<br/>
 			<p:outputLabel value="Email:" for="email" />
-			<p:inputText id="email" value="#{apprenantEditView.apprenant.email}" />
+			<p:inputText id="email" value="#{apprenantEditView.apprenant.email}" required="required"/>
 			<br/>
 			<p:outputLabel value="Registre national:" for="registreNational" />
-			<p:inputText id="registreNational" value="#{apprenantEditView.apprenant.registreNational}" />
+			<p:inputText id="registreNational" value="#{apprenantEditView.apprenant.registreNational}" required="required"/>
 			<br/>
 			<p:outputLabel value="Code postal:" for="codePostal" />
-			<p:inputText id="codePostal" value="#{apprenantEditView.apprenant.adresse.codePostal}" />
+			<p:inputText id="codePostal" value="#{apprenantEditView.apprenant.adresse.codePostal}" required="required"/>
 			<br/>
 			<p:outputLabel value="Localité:" for="localite" />
-			<p:inputText id="localite" value="#{apprenantEditView.apprenant.adresse.localite}" />
+			<p:inputText id="localite" value="#{apprenantEditView.apprenant.adresse.localite}" required="required"/>
 			<br/>
 			<p:outputLabel value="Pays:" for="pays" />
-			<p:inputText id="pays" value="#{apprenantEditView.apprenant.adresse.pays.pays}" />
+			<p:inputText id="pays" value="#{apprenantEditView.apprenant.adresse.pays.pays}" required="required"/>
 			<br/>
 			<p:outputLabel value="Solde compte crédit:" for="cpte" />
-			<p:inputText id="cpte" value="#{apprenantEditView.apprenant.compteCredit.solde}" />
+			<p:inputText id="cpte" value="#{apprenantEditView.apprenant.compteCredit.solde}" required="required"/>
 			<br/>
 			<p:outputLabel value="Possèdes ces compétences:" for="competences" />
 			<p:autoComplete id="competences" 
